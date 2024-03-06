@@ -6,9 +6,9 @@ It is for both 32- and 64-bit VBA and was tested with two versions of Office in 
 - 64-bit Office 365 
 - 32-bit Office 2016
 
-Some main routines: 
+## Some main routines: 
 
-`Public Sub memdump(ByVal addr As LongPtr, ByVal rows As Long)` 
+### Public Sub memdump(ByVal addr As LongPtr, ByVal rows As Long)
 
 displays memory content: 
 
@@ -24,7 +24,7 @@ displays memory content:
     000001D7D0550C50: 50 55 7F 56 D8 01 00 00 | 10 4C F6 CF D7 01 00 00 | PUVØ....LöÏ×...
     000001D7D0550C60: 00 00 00 00 00 00 00 00 | 00 00 00 00 00 00 00 00 | ................
 
-`Public Function vardump(v, Optional AsBYREF As Boolean) As String`
+### Public Function vardump(v, Optional AsBYREF As Boolean) As String
 
 dumps memory content of variables:
 
@@ -34,7 +34,7 @@ dumps memory content of variables:
     
     000001D7D0550C30: 0C20-000000000000-1030A8C9D7010000-0000000000000000 VT_ARRAY|vbVariant
 
-`Public Sub dump_safearray(a, Optional withElements As Long)`
+### Public Sub dump_safearray(a, Optional withElements As Long)
 
 dumps SAFEARRAY structures of different arrays: 
 
