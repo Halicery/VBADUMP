@@ -1,5 +1,5 @@
 # VBADUMP
-Memory dump and layout routines for VBA variables and structures, written in VBA in a Standard Module. Uses kernel32 RtlMoveMemory to peek. It was written to explore some internal behaviour of VBA, mainly to understand variable storage, operations and especially to explore how Arrays work. 
+Memory dump and layout routines for VBA variables and structures, written in VBA in a Standard Module. Uses kernel32 RtlMoveMemory to peek. It was written to explore some internal behaviour of VBA, mainly to understand variable storage, parameter passing and especially to explore how Arrays work. 
 
 It is for both 32- and 64-bit VBA and was tested with two versions of Office in Excel: 
 
