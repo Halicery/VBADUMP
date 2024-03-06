@@ -1,7 +1,8 @@
 # VBADUMP
-Memory dump and layout routines for VBA variables and structures, written in VBA in a Standard Module. Uses kernel32 RtlMoveMemory to peek. It was written to explore some internal behaviour of VBA, mainly to understand variable storage, parameter passing and especially to explore how Arrays work. 
 
-It is for both 32- and 64-bit VBA and was tested with two versions of Office in Excel: 
+Memory dump and layout routines for VBA variables and structures, written in VBA in a Standard Module: **vbadump.bas**. Uses kernel32 RtlMoveMemory to peek. It was written to explore some internal behaviour of VBA, mainly to understand variable storage, parameter passing and especially to explore how Arrays are laid out. This code was used - of course after clearing it up and stripped a little - to write the blog __VBA internal investigations__. 
+
+It is supposed to work for both 32- and 64-bit VBA and it was tested and developed on two versions of Office in Excel: 
 
 - 64-bit Office 365 
 - 32-bit Office 2016
@@ -10,23 +11,25 @@ It is for both 32- and 64-bit VBA and was tested with two versions of Office in 
 
 ### Public Sub memdump(ByVal addr As LongPtr, ByVal rows As Long)
 
-displays memory content: 
+Displays memory content: 
 
     Dim v
     Dim p As LongPtr
     p = -1
     v = -1
     memdump VarPtr(p), 5
+	
+	000001D7D0550C28: FF FF FF FF FF FF FF FF | 02 00 00 00 00 00 00 00 | ÿÿÿÿÿÿÿÿ........
+	000001D7D0550C38: FF FF 00 00 00 00 00 00 | 00 00 00 00 00 00 00 00 | ÿÿ..............
+	000001D7D0550C48: F0 59 7F 56 D8 01 00 00 | F0 59 7F 56 D8 01 00 00 | ðYVØ...ðYVØ...
+	000001D7D0550C58: 10 4C F6 CF D7 01 00 00 | 00 00 00 00 00 00 00 00 | .LöÏ×...........
+	000001D7D0550C68: 00 00 00 00 00 00 00 00 | 00 00 00 00 00 00 00 00 | ................
 
-    000001D7D0550C20: FF FF FF FF FF FF FF FF | 00 00 00 00 00 00 00 00 | ÿÿÿÿÿÿÿÿ........
-    000001D7D0550C30: 02 00 00 00 00 00 00 00 | FF FF 00 00 00 00 00 00 | ........ÿÿ......
-    000001D7D0550C40: 00 00 00 00 00 00 00 00 | 50 55 7F 56 D8 01 00 00 | ........PUVØ...
-    000001D7D0550C50: 50 55 7F 56 D8 01 00 00 | 10 4C F6 CF D7 01 00 00 | PUVØ....LöÏ×...
-    000001D7D0550C60: 00 00 00 00 00 00 00 00 | 00 00 00 00 00 00 00 00 | ................
+
 
 ### Public Function vardump(v, Optional AsBYREF As Boolean) As String
 
-dumps memory content of variables:
+Dumps memory content of variables:
 
     Dim v
     ReDim v(3)
@@ -36,7 +39,7 @@ dumps memory content of variables:
 
 ### Public Sub dump_safearray(a, Optional withElements As Long)
 
-dumps SAFEARRAY structures of different arrays: 
+Dumps SAFEARRAY structures of different arrays: 
 
     ReDim sarr(3) As String
     sarr(0) = "hi"
