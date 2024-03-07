@@ -443,8 +443,8 @@ Public Sub dump_safearray(a, Optional withElements As Long)
         Debug.Print "UNallocated SAFEARRAY PSA=0"
     Else
         dump_safearray_psa psa
+        If withElements Then dump_elements a
     End If
-    If withElements Then dump_elements a
 End Sub
 
 ' separate for arrays we cannot pass as Variant: ParamArray, UDT arrays (from memdump)
