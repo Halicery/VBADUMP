@@ -4,8 +4,8 @@ Memory dump and layout routines for VBA variables and structures, written in VBA
 
 It is supposed to work for both 32- and 64-bit VBA and it was tested and developed on two versions of Office in Excel: 
 
-- 64-bit Office 365 
-- 32-bit Office 2016
+- 64-bit Office 365 (VBA 7.1 v1131)
+- 32-bit Office 2016 (VBA 7.1 v1127)
 
 ## Some main routines: 
 
