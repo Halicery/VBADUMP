@@ -65,6 +65,10 @@ Dumps SAFEARRAY structures of different arrays:
     000001D7D81FAC98: 0000000000000000 String
 
 
+## VBA BUGS
+
+There are also two Modules with example code for the two VBA bugs found and analyzed using VBADUMP. 
+
 
 
 
